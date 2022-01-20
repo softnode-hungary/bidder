@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horváth Péter Árajánlat</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        html {
+            height: 100%;
+            font-family: system-ui, sans-serif;
+            text-align: center;
+            color: rgb(211, 211, 211);
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background: rgb(97, 97, 97);
+
+        }
+
+        #bigcont {
+            height: 80%;
+            width: 100%;
+            background: rgb(97, 97, 97);
+            display: flex;
+            align-items: stretch;
+            text-align: right;
+        }
+
+        svg,
+        button {
+            width: 100%;
+            margin: 0 auto 1rem;
+        }
+
+        svg {
+            max-width: 12rem;
+        }
+
+        #long {
+            position: absolute;
+            max-width: 33rem;
+            padding: 1.5rem;
+            font-size: 1rem;
+            background: rgb(226, 124, 34);
+            border: .3em solid rgb(145, 132, 22);
+            border-radius: 1em;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            outline: none;
+        }
+
+        #long:hover,
+        #long:focus {
+            background-color: rgb(95, 163, 202);
+        }
+
+        #kisbut {
+            max-width: 10rem;
+            padding: 1.5rem;
+            font-size: 1rem;
+            background: rgb(226, 124, 34);
+            border: .3em solid rgb(145, 132, 22);
+            border-radius: 1em;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            outline: none;
+        }
+
+        #kisbut:hover {
+            background-color: rgb(95, 163, 202);
+        }
+
+        #delbut {
+            max-width: 10rem;
+            padding: 1.5rem;
+            font-size: 1rem;
+            background: rgb(226, 124, 34);
+            border: .3em solid rgb(145, 132, 22);
+            border-radius: 1em;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            outline: none;
+        }
+
+        #delbut:hover {
+            background-color: rgb(95, 163, 202);
+        }
+
+        #container {
+            background-color: rgb(14, 14, 14);
+            width: 100%;
+            text-align: center;
+            padding:10px 10px 10px 10px;
+        }
+        #items {
+            background-color: rgb(41, 41, 41);
+            width: 50%;
+        }
+        #countryList {
+            width: 70%;
+            padding-left: 11%;
+        }
+
+        .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #000;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #000000;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #000000;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #000000;
+}
+    </style>
+</head>
+<body>
+    <h1>Árajánlat készítő</h1>
+    <div id="container">
+        Név: <input type="text" name="" id="box-name">
+        Elérhetőség: <input type="text" name="" id="box-contact">
+        IRSZ Város: <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+              <input id="myInput" type="text" name="myCountry" placeholder="Country">
+            </div>
+            <input type="submit">
+          </form>
+        Utca házszám: <input type="text" name="" id="box-street">
+        Árajánlat erre: <input type="text" name="" id="box-subject">
+    </div>
+    <div id="bigcont">
+        <div id="items">
+            Termékek/Szolgáltatás:
+            Megnevezés: <input type="text" name="" id="item-name"><br>
+            Leírás: <input type="text" name="" id="item-desc"><br>
+            Mennyiség: <input type="text" name="" id="item-qty"><br>
+            Ár: <input type="text" name="" id="item-amount"><br><br>
+            <button id='kisbut'>Hozzáadás</button>
+        </div>
+        <div id="itemstotalcont"> 
+            <div id="itemtotal"></div>
+            <button id='delbut'>Utolsó törlése <div id="totalval">Végösszeg: </div></button>
+        </div>
+        
+    </div>  
+    <button id="long" style="bottom:0;">Generáld le</button>
+    <script src="bundle.js" type="text/javascript"></script>
+</body>
+</html>
